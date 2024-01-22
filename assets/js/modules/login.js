@@ -38,7 +38,12 @@ $(document).ready(function () {
 			success: function (response) {
 				console.log(response["data2"]);
 				console.log(response["data"]);
-				alert(response["message"]);
+				if(response['status'] == "failed"){
+
+					alert(response["message"]);
+				}else{
+					window.location.href = base_url + "dashboard";
+				}
 			},
 			error: function (error) {
 				console.log(error);
@@ -47,39 +52,5 @@ $(document).ready(function () {
 		});
 	});
 
-	// // Attach a click event to the submit button
-	// $("#submitBtn").click(function () {
-	// 	if ($("#loginForm").valid()) {
-	// 		// Get the form data
-	// 		var username = $("#username").val();
-	// 		var password = $("#passwordEl").val();
-
-	// 		var formData = new FormData();
-	// 		formData.append("Username", username);
-	// 		formData.append("Password", password);
-
-	// 		var slug = base_url + "login/sign_in";
-	// 		console.log(slug);
-
-	// 		// Make an AJAX request
-	// 		$.ajax({
-	// 			type: "POST",
-	// 			url: slug,
-	// 			data: {
-	// 				Username: username,
-	// 				Password: password,
-	// 			},
-	// 			dataType: "json",
-	// 			success: function (response) {
-	// 				console.log(response["data2"]);
-	// 				console.log(response["data"]);
-	// 				alert(response["message"]);
-	// 			},
-	// 			error: function (error) {
-	// 				console.log(error);
-	// 				alert("Error submitting data");
-	// 			},
-	// 		});
-	// 	}
-	// });
+	 
 });

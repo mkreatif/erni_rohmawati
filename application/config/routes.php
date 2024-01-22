@@ -51,5 +51,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['login/sign_in'] = 'login/sign_in';
 $route['login'] = 'login';
+$route['login/sign_in'] = 'login/sign_in'; 
+$route['dashboard/(:any)'] = 'dashboard';
+$route['dashboard'] = 'dashboard';
+$route['rekomendasi-jalur'] = 'distribusijalur';
+$route['eigen-vektor'] = 'eigenvektor';
+$route['bobot-kriteria'] = 'kriteria/bobot';
+$route['kriteria'] = 'kriteria';
+$route['data-perhitungan'] = 'perhitungan';
+$route['data-distributor'] = 'distributor';
 $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';

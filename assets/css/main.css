@@ -17,3 +17,23 @@
 .login-icon{
     width: 100%;
 }
+
+/* Dashboard Page */
+
+.dashboard-icon{
+    width: 100px;
+    height: auto;
+}
+
+.card-dashboard{
+    align-items: center; 
+    padding: 10px;
+}
+.card-dashboard:hover{
+    transform: scale(1.05,1.05);
+    cursor: pointer;
+}
+.card-dashboard:active{
+    transform: scale(0.95,0.95);
+    cursor: pointer;
+}
