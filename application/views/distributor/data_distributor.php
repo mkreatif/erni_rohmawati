@@ -20,7 +20,7 @@
 
     <Section class="mt-2">
         <div class="card p-3">
-            <h4>Form Data </h4>
+            <h4>Form <?= $title?></h4>
             <hr />
             <form action="#">
                 <div class="form-group row">
@@ -64,8 +64,10 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-sm-5">
-                        <input class="btn btn-primary" type="submit" value="Simpan">
+                    <div class="col md-12">
+                        <input id="generalSubmitBtn" class="btn btn-success btn-sm" type="submit" value="Simpan" />
+                        <input id="generalDeleteBtn" class="btn btn-danger btn-sm" type="button" value="Delete" />
+                        <input id="generalEdit" class="btn btn-primary btn-sm" type="button" value="Edit" />
                     </div>
                 </div>
             </form>
@@ -73,8 +75,8 @@
 
     </Section>
 
-    <Section class="mt-4">
-        <table id="distributorTable" class="table table-striped table-bordered" style="width:100%">
+    <Section class="my-4">
+        <table id="GeneralDataTable" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -82,7 +84,6 @@
                     <th>NAMA</th>
                     <th>NO.TELEPON</th>
                     <th>ALAMAT</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -93,10 +94,6 @@
                     <td><?= $entry->nama;?></td>
                     <td><?= $entry->no_tlp;?></td>
                     <td><?= $entry->alamat;?></td>
-                    <td class="text-center">
-                        <div class="btn btn-primary btn-sm ">Edit</div>
-                        <div class="btn btn-danger btn-sm">Delete</div>
-                    </td>
                 </tr>
                 <?php } ?>
             </tbody>

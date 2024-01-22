@@ -27,7 +27,7 @@ class Kriteria extends CI_Controller
     {
         $data['title'] = "Bobot Kriteria";
         $this->load->view('templates/header', $data);
-        $this->load->view("kriteria/kriteria.php");
+        $this->load->view("kriteria/bobot-kriteria.php");
         $this->load->view('templates/footer');
     }
 

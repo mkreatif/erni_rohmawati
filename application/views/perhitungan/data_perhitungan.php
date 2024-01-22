@@ -20,7 +20,7 @@
 
     <Section class="mt-2">
         <div class="card p-3">
-            <h4>Form Data </h4>
+        <h4>Form <?= $title?></h4>
             <hr />
             <form action="#">
                 <div class="row">
@@ -112,13 +112,11 @@
                     </div>
                 </div>
 
-
-
-
-
-                <div class="form-group row"> 
-                    <div class="col-sm-12">
-                        <input class="btn btn-primary btn-sm" type="submit" value="Simpan">
+                <div class="form-group row">
+                    <div class="col md-12">
+                        <input id="generalSubmitBtn" class="btn btn-success btn-sm" type="submit" value="Simpan" />
+                        <input id="generalDeleteBtn" class="btn btn-danger btn-sm" type="button" value="Delete" />
+                        <input id="generalEdit" class="btn btn-primary btn-sm" type="button" value="Edit" />
                     </div>
                 </div>
             </form>
@@ -126,43 +124,38 @@
 
     </Section>
 
-    <Section class="mt-4"> 
-            <table id="GeneralDataTable" class="table table-striped table-bordered" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>KODE DISTRIBUTOR</th>
-                        <th>NAMA</th>
-                        <th>PERUSAHAAN</th>
-                        <th>JARAK</th>
-                        <th>ESTIMASI</th>
-                        <th>KAPASITAS</th>
-                        <th>BIAYA</th>
-                        <th>SKILL</th>
-                        <th>JUMLAH</th>
-                        <th>RANK</th>
-                        <th width="200"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach($db_entries as $entry) {?>
-                    <tr>
-                        <td><?= $entry->kode_distributor;?></td>
-                        <td><?= $entry->nama;?></td>
-                        <td><?= $entry->perusahaan;?></td>
-                        <td><?= $entry->N1?></td>
-                        <td><?= $entry->N2?></td>
-                        <td><?= $entry->N3?></td>
-                        <td><?= $entry->N4?></td>
-                        <td><?= $entry->N5?></td>
-                        <td><?= $entry->N_akhir;?></td>
-                        <td><?= $entry->N_ket;?></td>
-                        <td class="text-center">
-                            <div class="btn btn-primary btn-sm ">Edit</div>
-                            <div class="btn btn-danger btn-sm">Delete</div>
-                        </td>
-                    </tr>
-                    <?php } ?>
-                </tbody>
-            </table> 
+    <Section class="my-4">
+        <table id="GeneralDataTable" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>KODE DISTRIBUTOR</th>
+                    <th>NAMA</th>
+                    <th>PERUSAHAAN</th>
+                    <th>JARAK</th>
+                    <th>ESTIMASI</th>
+                    <th>KAPASITAS</th>
+                    <th>BIAYA</th>
+                    <th>SKILL</th>
+                    <th>JUMLAH</th>
+                    <th>RANK</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($db_entries as $entry) {?>
+                <tr>
+                    <td><?=$entry->kode_distributor;?></td>
+                    <td><?=$entry->nama;?></td>
+                    <td><?=$entry->perusahaan;?></td>
+                    <td><?=$entry->N1?></td>
+                    <td><?=$entry->N2?></td>
+                    <td><?=$entry->N3?></td>
+                    <td><?=$entry->N4?></td>
+                    <td><?=$entry->N5?></td>
+                    <td><?=$entry->N_akhir;?></td>
+                    <td><?=$entry->N_ket;?></td>
+                </tr>
+                <?php }?>
+            </tbody>
+        </table>
     </Section>
 </div>

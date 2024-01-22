@@ -20,15 +20,25 @@
                     $('#loading-overlay').hide();
                 });
 
-	            // $("#GeneralDataTable").DataTable(); 
-                new DataTable('#GeneralDataTable');
+	            // $("#GeneralDataTable").DataTable();
+               var table= new DataTable('#GeneralDataTable');
+               table.on('click', 'tbody tr', (e) => {
+                    let classList = e.currentTarget.classList;
+
+                    if (classList.contains('selected')) {
+                        classList.remove('selected');
+                    }
+                    else {
+                        table.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
+                        classList.add('selected');
+                    }
+                });
 
             });
 
         </script>
 
-        <?php if (isset($scripts)) {
-    foreach ($scripts as $path) {?>
+        <?php if (isset($scripts)) {foreach ($scripts as $path) {?>
         <script src="<?=base_url($path);?>"></script>
         <?php }}?>
     </body>

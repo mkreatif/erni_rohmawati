@@ -20,7 +20,7 @@
 
     <Section class="mt-2">
         <div class="card p-3">
-            <h4>Form Data </h4>
+            <h4>Form <?= $title?></h4>
             <hr />
             <form action="#">
 
@@ -60,8 +60,10 @@
                 </div>
 
                 <div class="form-group row">
-                    <div class="col-sm-5">
-                        <input class="btn btn-primary" type="submit" value="Simpan">
+                    <div class="col md-12">
+                        <input id="generalSubmitBtn" class="btn btn-success btn-sm" type="submit" value="Simpan" />
+                        <input id="generalDeleteBtn" class="btn btn-danger btn-sm" type="button" value="Delete" />
+                        <input id="generalEdit" class="btn btn-primary btn-sm" type="button" value="Edit" />
                     </div>
                 </div>
             </form>
@@ -69,14 +71,13 @@
 
     </Section>
 
-    <Section class="mt-4">
+    <Section class="my-4">
         <table id="GeneralDataTable" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
                     <th>KODE KRITERIA</th>
                     <th>NAMA KRITERIA</th>
-                    <th>PREFERENSI BOBOT</th>
-                    <th></th>
+                    <th>PREFERENSI BOBOT</th> 
                 </tr>
             </thead>
             <tbody>
@@ -85,10 +86,6 @@
                     <td><?= $entry->K_kriteria;?></td>
                     <td><?= $entry->N_kriteria;?></td>
                     <td><?= $entry->P_kriteria;?></td>
-                    <td class="text-center">
-                        <div class="btn btn-primary btn-sm ">Edit</div>
-                        <div class="btn btn-danger btn-sm">Delete</div>
-                    </td>
                 </tr>
                 <?php } ?>
             </tbody>
