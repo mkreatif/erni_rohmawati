@@ -8,8 +8,8 @@
                      <input type="text" class="form-control" id="username" required> 
                  </div>
                  <div class="form-group">
-                     <label for="password">Password</label>
-                     <input type="password" class="form-control" id="password" required>
+                     <label for="passwordEl">Password</label>
+                     <input type="password" class="form-control" id="passwordEl" required>
                  </div>
                  <input id="submitBtn" type="submit" class="btn btn-primary" value="Log In" >
              </form>
@@ -19,6 +19,4 @@
          </div>
 
      </div>
- </div>
-
- <div id="dialog" title="Form Submission Result"></div>
+ </div> 
