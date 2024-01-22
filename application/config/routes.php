@@ -58,6 +58,7 @@ $route['eigen-vektor'] = 'eigenvektor';
 $route['bobot-kriteria'] = 'kriteria/bobot';
 $route['kriteria/create'] = 'kriteria/create';
 $route['kriteria'] = 'kriteria';
+$route['data-perhitungan/save'] = 'perhitungan/create';
 $route['data-perhitungan'] = 'perhitungan';
 $route['data-distributor/save'] = 'distributor/create';
 $route['data-distributor'] = 'distributor';

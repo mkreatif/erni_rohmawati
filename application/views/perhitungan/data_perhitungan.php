@@ -35,7 +35,7 @@
                             <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Kode
                                 Distributor</label>
                             <div class="col-sm-8">
-                                <select class="form-control form-control-sm" id="id_distributor">
+                                <select class="form-control form-control-sm" id="kode_distributor">
                                     <option value="" disabled selected>Pilih Kode Distributor</option>
                                     <?php foreach ($db_distributors as $entry) {?>
                                     <option value="<?=$entry->Id;?>"><?=$entry->Id;?></option>
@@ -47,7 +47,7 @@
                             <label for="colFormLabelSm"
                                 class="col-sm-4 col-form-label col-form-label-sm">Distributor</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-sm" id="distributor"
+                                <input type="text" class="form-control form-control-sm" id="nama"
                                     placeholder="Distributor ..." readonly>
                             </div>
                         </div>
@@ -55,23 +55,23 @@
                             <label for="colFormLabelSm"
                                 class="col-sm-4 col-form-label col-form-label-sm">Perusahaan</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-sm" id="nama"
+                                <input type="text" class="form-control form-control-sm" id="perusahaan"
                                     placeholder="Perusahaan ..." readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Jarak</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
-                                    placeholder="">
+                                <input type="number" class="form-control form-control-sm" id="N1"
+                                    placeholder="" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="colFormLabelSm"
                                 class="col-sm-4 col-form-label col-form-label-sm">Estimasi</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
-                                    placeholder="">
+                                <input type="number" class="form-control form-control-sm" id="N2"
+                                    placeholder="" required>
                             </div>
                         </div>
 
@@ -81,22 +81,22 @@
                             <label for="colFormLabelSm"
                                 class="col-sm-4 col-form-label col-form-label-sm">Kapasitas</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
-                                    placeholder="">
+                                <input type="number" class="form-control form-control-sm" id="N3"
+                                    placeholder="" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Biaya</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
-                                    placeholder="">
+                                <input type="number" class="form-control form-control-sm" id="N4"
+                                    placeholder="" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Skill</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
-                                    placeholder="">
+                                <input type="number" class="form-control form-control-sm" id="N5"
+                                    placeholder="" required>
                             </div>
                         </div>
 
@@ -104,15 +104,15 @@
                             <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Nilai
                                 Akhir</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
-                                    placeholder="">
+                                <input type="number" class="form-control form-control-sm" id="N_akhir"
+                                    placeholder="" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Rank</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
-                                    placeholder="">
+                                <input type="text" class="form-control form-control-sm" id="N_ket"
+                                    placeholder="" required>
                             </div>
                         </div>
                     </div>
