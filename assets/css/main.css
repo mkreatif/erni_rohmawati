@@ -1,0 +1,19 @@
+/* LOGIN PAGE */
+
+.login-container{
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+
+.login-form{
+    height: 60vh;
+    background-color: rgba(246, 246, 246, 0.25);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.login-icon{
+    width: 100%;
+}

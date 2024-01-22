@@ -22,9 +22,7 @@ class Login extends CI_Controller
 
         $this->load->view('templates/header', $data);
         $this->load->view('login/login', $data);
-        $this->load->view('templates/footer');
-
-        echo json_encode($data);
+        $this->load->view('templates/footer'); 
     }
 
     public function view($slug = null)
