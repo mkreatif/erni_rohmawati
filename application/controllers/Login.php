@@ -29,10 +29,10 @@ class Login extends CI_Controller
             $username = $this->input->post('Username');
             $password = $this->input->post('Password');
             if (isset($username) && isset($password)) {
-                $data = $this->login_model->get_credentials($username, $password);
+                $data = $this->login_model->get_by_conditions(array("Username"=>$username, "Password"=> $password));
                 $where = array("Username" => $username, "Passwrod" => $password);
                 // Return response (you can also return JSON)
-                if (isset($data)) {
+                if (isset($data) && !empty($data)) {
                     echo json_encode(['status' => 'success', 'message' => 'Anda Berhasil Login', "data" => $where, "data2" => $data]);
                 } else {
                     echo json_encode(['status' => 'failed', 'message' => 'Username atau Password Salah', "data" => $where, "data2" => $data]);

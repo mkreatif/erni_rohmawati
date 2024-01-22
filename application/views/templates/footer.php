@@ -5,6 +5,8 @@
         <script src="<?=base_url('assets/js/jquery.validate.min.js');?>"></script>
         <script src="<?=base_url('assets/js/additional-methods.min.js');?>"></script> 
         <script src="<?=base_url('assets/js/bootstrap.min.js');?>"></script>
+        <script src="<?=base_url('assets/js/jquery.datatables.min.js');?>"></script>
+        <script src="<?=base_url('assets/js/datatables.bootstrap.min');?>"></script>
 
         <script>
             $(document).ready(function() {

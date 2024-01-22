@@ -1,39 +1,85 @@
 /* LOGIN PAGE */
 
-.login-container{
-    background-image: url('../images/background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; 
+.login-container {
+	background-image: url("../images/background.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
-.login-form{
-    height: 60vh;
-    background-color: rgba(246, 246, 246, 0.25);
-    border-radius: 15px;
-    padding: 20px;
+.login-form {
+	height: 60vh;
+	background-color: rgba(246, 246, 246, 0.25);
+	border-radius: 15px;
+	padding: 20px;
 }
 
-.login-icon{
-    width: 100%;
+.login-icon {
+	width: 100%;
 }
 
 /* Dashboard Page */
 
-.dashboard-icon{
-    width: 100px;
-    height: auto;
+.dashboard-icon {
+	width: 100px;
+	height: auto;
 }
 
-.card-dashboard{
-    align-items: center; 
-    padding: 10px;
+.card-dashboard {
+	align-items: center;
+	padding: 10px;
 }
-.card-dashboard:hover{
-    transform: scale(1.05,1.05);
-    cursor: pointer;
+.card-dashboard:hover {
+	transform: scale(1.05, 1.05);
+	cursor: pointer;
 }
-.card-dashboard:active{
-    transform: scale(0.95,0.95);
-    cursor: pointer;
+.card-dashboard:active {
+	transform: scale(0.95, 0.95);
+	cursor: pointer;
+}
+
+/* GENERAL */
+/* Custom CSS for styling the legend or adding labels */
+.custom-legend {
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #007bff; /* Bootstrap primary color */
+}
+
+.custom-label {
+	margin-bottom: 0.5rem;
+	color: #6c757d; /* Bootstrap secondary color */
+}
+
+#loading-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.8);
+	z-index: 9999;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.spinner {
+	border: 8px solid #f3f3f3;
+	border-top: 8px solid #3498db;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
 }
