@@ -1,3 +1,9 @@
+<!-- global variable -->
+<script>
+    var dis_option_ci = <?php echo json_encode($db_distributors); ?>;
+    var generateSerialID = generateSerialID('DS', <?= count($db_entries)+1   ;?>);
+</script>
+
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <a class="navbar-brand" href="#"><?=$title;?></a>
@@ -22,17 +28,17 @@
         <div class="card p-3">
         <h4>Form <?= $title?></h4>
             <hr />
-            <form action="#">
+            <form id="formulirPerhitungan">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Kode
                                 Distributor</label>
                             <div class="col-sm-8">
-                                <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <select class="form-control form-control-sm" id="id_distributor">
                                     <option value="" disabled selected>Pilih Kode Distributor</option>
-                                    <?php foreach ($dis_options as $key => $value) {?>
-                                    <option value="<?=$key;?>"><?=$key;?></option>
+                                    <?php foreach ($db_distributors as $entry) {?>
+                                    <option value="<?=$entry->Id;?>"><?=$entry->Id;?></option>
                                     <?php }?>
                                 </select>
                             </div>
@@ -41,16 +47,16 @@
                             <label for="colFormLabelSm"
                                 class="col-sm-4 col-form-label col-form-label-sm">Distributor</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
-                                    placeholder="">
+                                <input type="text" class="form-control form-control-sm" id="distributor"
+                                    placeholder="Distributor ..." readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="colFormLabelSm"
                                 class="col-sm-4 col-form-label col-form-label-sm">Perusahaan</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
-                                    placeholder="">
+                                <input type="text" class="form-control form-control-sm" id="nama"
+                                    placeholder="Perusahaan ..." readonly>
                             </div>
                         </div>
                         <div class="form-group row">
