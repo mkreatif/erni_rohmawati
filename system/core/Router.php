@@ -102,7 +102,7 @@ class CI_Router {
 	 *
 	 * @var	bool
 	 */
-	public $translate_uri_dashes = FALSE;
+	public $translate_uri_dashes = TRUE;
 
 	/**
 	 * Enable query strings flag
