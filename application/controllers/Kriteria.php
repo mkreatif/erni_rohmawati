@@ -18,6 +18,9 @@ class Kriteria extends CI_Controller
         $data["option_nama"] = array("Jarak", "Estimasi", "Kapasitas", "Biaya", "Skill");
         $data["option_bobot"] = array("10", "15", "20");
         $data["db_entries"] = $this->kriteria->get_all();
+        $data["scripts"] = [
+            "assets/js/modules/kriteria.js",
+        ];
         $this->load->view('templates/header', $data);
         $this->load->view("kriteria/kriteria.php");
         $this->load->view('templates/footer');
@@ -29,6 +32,31 @@ class Kriteria extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view("kriteria/bobot-kriteria.php");
         $this->load->view('templates/footer');
+    }
+
+    public function create()
+    {
+        try {
+            // Process submitted data
+            $kk = $this->input->post('K_kriteria');
+            $nk = $this->input->post('N_kriteria');
+            $pk = $this->input->post('P_kriteria');
+
+            $result = $this->kriteria->insert(array(
+                "K_kriteria" => $kk,
+                "N_kriteria" => $nk,
+                "P_kriteria" => $pk,
+            ));
+
+            if (isset($result)) {
+                echo json_encode(['status' => 'success', 'message' => 'Data Berhasil Disimpan', "data" => $result]);
+            } else {
+                echo json_encode(['status' => 'failed', 'message' => 'Data Gagal Disimpan', "data" => $result]);
+            }
+        } catch (Throwable $th) {
+            throw $th;
+        }
+
     }
 
 }

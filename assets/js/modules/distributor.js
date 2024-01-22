@@ -1,3 +1,47 @@
 $(document).ready(function () {
-	$("#distributorTable").DataTable();
+	$("#kode").val(generateSerialID);
+	$("#formDistributor").submit(function (event) {
+		// Prevent the default form submission
+		event.preventDefault();
+		var kode = $("#kode").val();
+		var distributor = $("#distributor").val();
+		var nama = $("#nama").val();
+		var no_tlp = $("#no_tlp").val();
+		var alamat = $("#alamat").val();
+
+		var slug = base_url + "data-distributor/save";
+		console.log(slug);
+
+		// Make an AJAX request
+		$.ajax({
+			type: "POST",
+			url: slug,
+			data: {
+				Id: kode,
+				distributor: distributor,
+				nama: nama,
+				no_tlp: no_tlp,
+				alamat: alamat,
+			},
+			dataType: "json",
+			success: function (response) {
+				console.log(response["data"]);
+				if (response["status"] == "failed") {
+					alert(response["message"]);
+				} else {
+					alert(response["message"]);
+					location.reload();
+				}
+			},
+			error: function (error) {
+				console.log(error);
+				alert("Error submitting data");
+			},
+		});
+	});
+
+	$("#distributor").change(function () {
+		var selectedValue = $(this).val();
+		$("#nama").val(dis_option_ci[selectedValue]);
+	});
 });

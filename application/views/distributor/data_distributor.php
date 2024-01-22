@@ -1,3 +1,8 @@
+<script>
+    var dis_option_ci = <?php echo json_encode($dis_options); ?>;
+    var generateSerialID = generateSerialID('DS', <?= count($db_entries)+1   ;?>);
+</script>
+<!-- Main Content -->
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <a class="navbar-brand" href="#"><?=$title;?></a>
@@ -10,31 +15,25 @@
                         style="width:30px; height:auto;" />
                 </a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <img src="<?=base_url('assets/images/close.png')?>" alt="arrow_back" />
-                </a>
-            </li> -->
         </ul>
     </nav>
-
     <Section class="mt-2">
         <div class="card p-3">
             <h4>Form <?= $title?></h4>
             <hr />
-            <form action="#">
+            <form id="formDistributor">
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Kode
                         Distributor</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
+                        <input type="text" class="form-control form-control-sm" id="kode" 
                             placeholder="Kode Distributor">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Distributor</label>
                     <div class="col-sm-5">
-                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                        <select class="form-control form-control-sm" id="distributor">
                             <option value="" disabled selected>Pilih Distributor</option>
                             <?php foreach ($dis_options as $key => $value) {?>
                             <option value="<?=$key;?>"><?=$key;?></option>
@@ -45,15 +44,14 @@
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Perusahaan</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
-                            placeholder="Nama Perusahaan">
+                        <input type="text" class="form-control form-control-sm" id="nama" placeholder="Nama Perusahaan"
+                            readonly>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">No Telepon</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control form-control-sm" id="colFormLabelSm"
-                            placeholder="081234567890">
+                        <input type="text" class="form-control form-control-sm" id="no_tlp" placeholder="081234567890">
                     </div>
                 </div>
                 <div class="form-group row">
