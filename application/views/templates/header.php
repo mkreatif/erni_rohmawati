@@ -7,5 +7,8 @@
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/main.css'); ?>" rel="stylesheet">
     <title><?php echo $title; ?></title>
+    <script>
+        var base_url = "<?php echo base_url(); ?>";
+    </script>
 </head>
-<body> 
+<body>

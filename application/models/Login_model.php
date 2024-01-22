@@ -8,15 +8,17 @@ class Login_model extends CI_Model
 
     }
 
-    public function get_credentials($where = [])
+    public function get_credentials($username, $password)
     {
-        if (is_array($where) && !empty($where)) {
-
-        } else {
-            $query = $this->db->get('login');
-            return $query->result_array();
-        }
-
+    
+            $this->db->select('*');
+            $this->db->from('login'); 
+            if(isset($username) && isset($password)){
+                $this->db->where("Username", $username);
+                $this->db->where("Password", $password);
+            }
+            $query = $this->db->get();
+            return $query->first_row();
     }
 
 }
