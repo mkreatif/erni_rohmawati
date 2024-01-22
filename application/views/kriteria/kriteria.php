@@ -1,5 +1,5 @@
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <a class="navbar-brand" href="#"><?=$title;?></a>
 
         <!-- Navbar items on the right -->
@@ -23,7 +23,7 @@
             <h4>Form Data </h4>
             <hr />
             <form action="#">
-                 
+
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Kode Kriteria</label>
                     <div class="col-sm-5">
@@ -47,7 +47,8 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nilai Bobot Preferensi</label>
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nilai Bobot
+                        Preferensi</label>
                     <div class="col-sm-5">
                         <select class="form-control form-control-sm" id="exampleFormControlSelect1">
                             <option value="" disabled selected>Pilih Nilai Bobot Preferensi</option>
@@ -57,9 +58,8 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm"></label>
                     <div class="col-sm-5">
                         <input class="btn btn-primary" type="submit" value="Simpan">
                     </div>
@@ -70,30 +70,28 @@
     </Section>
 
     <Section class="mt-4">
-        <div class="card">
-            <table id="GeneralDataTable" class="table table-striped table-bordered" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>KODE KRITERIA</th>
-                        <th>NAMA KRITERIA</th>
-                        <th>PREFERENSI BOBOT</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach($db_entries as $entry) {?>
-                    <tr>
-                        <td><?= $entry->K_kriteria;?></td>
-                        <td><?= $entry->N_kriteria;?></td>
-                        <td><?= $entry->P_kriteria;?></td>
-                        <td class="text-center">
-                            <div class="btn btn-primary btn-sm ">Edit</div>
-                            <div class="btn btn-danger btn-sm">Delete</div>
-                        </td>
-                    </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </div>
+        <table id="GeneralDataTable" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>KODE KRITERIA</th>
+                    <th>NAMA KRITERIA</th>
+                    <th>PREFERENSI BOBOT</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($db_entries as $entry) {?>
+                <tr>
+                    <td><?= $entry->K_kriteria;?></td>
+                    <td><?= $entry->N_kriteria;?></td>
+                    <td><?= $entry->P_kriteria;?></td>
+                    <td class="text-center">
+                        <div class="btn btn-primary btn-sm ">Edit</div>
+                        <div class="btn btn-danger btn-sm">Delete</div>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </Section>
 </div>

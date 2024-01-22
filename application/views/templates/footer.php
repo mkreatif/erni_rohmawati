@@ -6,7 +6,7 @@
         <script src="<?=base_url('assets/js/additional-methods.min.js');?>"></script>
         <script src="<?=base_url('assets/js/bootstrap.min.js');?>"></script>
         <script src="<?=base_url('assets/js/jquery.datatables.min.js');?>"></script>
-        <script src="<?=base_url('assets/js/datatables.bootstrap.min');?>"></script>
+        <script src="<?=base_url('assets/js/datatables.bootstrap.min.js');?>"></script>
 
         <script>
             $(document).ready(function() {
@@ -20,7 +20,8 @@
                     $('#loading-overlay').hide();
                 });
 
-	            $("#GeneralDataTable").DataTable(); 
+	            // $("#GeneralDataTable").DataTable(); 
+                new DataTable('#GeneralDataTable');
 
             });
 
