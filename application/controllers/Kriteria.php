@@ -34,19 +34,27 @@ class Kriteria extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function create()
+    public function create($id = -1)
     {
         try {
             // Process submitted data
             $kk = $this->input->post('K_kriteria');
             $nk = $this->input->post('N_kriteria');
             $pk = $this->input->post('P_kriteria');
-
-            $result = $this->kriteria->insert(array(
-                "k_kriteria" => $kk,
-                "n_kriteria" => $nk,
-                "p_kriteria" => $pk,
-            ));
+            $result;
+            if($id != -1){
+                $result = $this->kriteria->update($id, array(
+                    "k_kriteria" => $kk,
+                    "n_kriteria" => $nk,
+                    "p_kriteria" => $pk,
+                ));
+            }else{
+                $result = $this->kriteria->insert(array(
+                    "k_kriteria" => $kk,
+                    "n_kriteria" => $nk,
+                    "p_kriteria" => $pk,
+                ));
+            }
 
             if (isset($result)) {
                 echo json_encode(['status' => 'success', 'message' => 'Data Berhasil Disimpan', "data" => $result]);

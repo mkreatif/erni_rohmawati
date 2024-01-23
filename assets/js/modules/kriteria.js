@@ -8,6 +8,9 @@ $(document).ready(function () {
 		var PKriteria = $("#P_kriteria").val();
 
 		var slug = base_url + "kriteria/create";
+		if (DT_RowId) {
+			slug += `/${DT_RowId}`;
+		}
 		console.log(slug);
 
 		// Make an AJAX request
@@ -44,13 +47,14 @@ $(document).ready(function () {
 			$("#K_kriteria").val(selected[0]);
 			$("#N_kriteria").val(selected[1]);
 			$("#P_kriteria").val(selected[2]);
-			DT_RowId = selected['DT_RowId'];
+			DT_RowId = selected["DT_RowId"];
+			console.log(DT_RowId);
 		} else {
 			showInfo("Silahkan Pilih Salah Satu Row di DataTable!");
 		}
 	});
 	$("#generalClear").click(function () {
-		$("#K_kriteria").val('');
+		$("#K_kriteria").val("");
 		$("#N_kriteria").val("");
 		$("#P_kriteria").val("");
 	});
