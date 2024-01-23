@@ -19,9 +19,8 @@ class Perhitungan extends CI_Controller
         $data["scripts"] = [
             "assets/js/modules/perhitungan.js?v=".time(),
         ];
-        $this->load->view('templates/header', $data);
-        $this->load->view("perhitungan/data_perhitungan");
-        $this->load->view('templates/footer');
+        $data['content_view'] = 'perhitungan/data_perhitungan';
+        $this->load->view('templates/template', $data);
     } 
 
     public function rekomendasi(){
@@ -32,9 +31,8 @@ class Perhitungan extends CI_Controller
         $data["scripts"] = [
             "assets/js/modules/rekomendasi_jalur.js?v=".time(),
         ];
-        $this->load->view('templates/header', $data);
-        $this->load->view("perhitungan/distribusi_jalur");
-        $this->load->view('templates/footer');
+        $data['content_view'] = 'perhitungan/distribusi_jalur';
+        $this->load->view('templates/template', $data);
     } 
     
     public function create()

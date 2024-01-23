@@ -21,17 +21,15 @@ class Kriteria extends CI_Controller
         $data["scripts"] = [
             "assets/js/modules/kriteria.js?v=".time(),
         ];
-        $this->load->view('templates/header', $data);
-        $this->load->view("kriteria/kriteria.php");
-        $this->load->view('templates/footer');
+        $data['content_view'] = 'kriteria/kriteria';
+        $this->load->view('templates/template', $data);
     }
 
     public function bobot()
     {
         $data['title'] = "Bobot Kriteria";
-        $this->load->view('templates/header', $data);
-        $this->load->view("kriteria/bobot-kriteria.php");
-        $this->load->view('templates/footer');
+        $data['content_view'] = 'kriteria/bobot-kriteria';
+        $this->load->view('templates/template', $data);
     }
 
     public function create($id = -1)

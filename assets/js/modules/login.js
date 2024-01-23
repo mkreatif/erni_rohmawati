@@ -35,7 +35,6 @@ $(document).ready(function () {
 				console.log(response["data2"]);
 				console.log(response["data"]);
 				if(response['status'] == "failed"){
-
 					showInfo(response["message"]);
 				}else{
 					window.location.href = base_url + "dashboard";

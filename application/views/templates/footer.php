@@ -1,35 +1,3 @@
-        <div id="loading-overlay">
-            <div class="spinner"></div>
-        </div>
-
-        <!-- The Modal -->
-        <div class="modal" id="modal-info">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 id="modalTitleContent" class="modal-title">
-                        <!-- Modal Title -->
-                    </h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal Body -->
-                <div class="modal-body" id="modalBodyContent">
-                    <!-- Dynamic content will be added here -->
-                </div>
-
-                <!-- Modal Footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-
-                </div>
-            </div>
-        </div>
-
-
         <script src="<?=base_url('assets/js/jquery.min.js');?>"></script>
         <script src="<?=base_url('assets/js/jquery.validate.min.js');?>"></script>
         <script src="<?=base_url('assets/js/additional-methods.min.js');?>"></script>

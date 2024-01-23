@@ -15,10 +15,9 @@ class Login extends CI_Controller
         $data['title'] = 'Login';
         $data["scripts"] = [
             "assets/js/modules/login.js",
-        ];
-        $this->load->view('templates/header', $data);
-        $this->load->view('login/login', $data);
-        $this->load->view('templates/footer');
+        ]; 
+        $data['content_view'] = 'login/login'; 
+        $this->load->view('templates/template', $data); 
 
     }
 

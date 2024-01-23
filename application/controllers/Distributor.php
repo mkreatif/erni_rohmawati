@@ -30,9 +30,8 @@ class Distributor extends CI_Controller
         $data["scripts"] = [
             "assets/js/modules/distributor.js?v=".time(),
         ];
-        $this->load->view('templates/header', $data);
-        $this->load->view("distributor/data_distributor");
-        $this->load->view('templates/footer');
+        $data['content_view'] = 'distributor/data_distributor';
+        $this->load->view('templates/template', $data);
     }
 
     public function create()

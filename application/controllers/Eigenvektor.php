@@ -12,9 +12,8 @@ class Eigenvektor extends CI_Controller
 
     public function index(){
         $data['title'] = "Eigen Vektor";
-        $this->load->view('templates/header', $data);
-        $this->load->view("eigen_vektor/eigen_vektor.php");
-        $this->load->view('templates/footer');
+        $data['content_view'] = 'eigen_vektor/eigen_vektor';
+        $this->load->view('templates/template', $data);
     } 
     
 }
