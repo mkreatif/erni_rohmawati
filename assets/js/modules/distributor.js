@@ -44,4 +44,27 @@ $(document).ready(function () {
 		var selectedValue = $(this).val();
 		$("#nama").val(dis_option_ci[selectedValue]);
 	});
+
+	$("#generalEdit").click(function () {
+		var table = $("#GeneralDataTable").DataTable();
+		var row = table.rows(".selected").data();
+		if (row.length > 0) {
+			var selected = row[0];
+			$("#kode").val(selected[0]);
+			$("#distributor").val(selected[1]);
+			$("#nama").val(selected[2]);
+			$("#no_tlp").val(selected[3]);
+			$("#alamat").val(selected[4]);
+		} else {
+			alert("Silahkan Pilih Salah Satu Row di DataTable!");
+		}
+	});
+
+	$("#generalClear").click(function () {
+		$("#kode").val(generateSerialID);
+		$("#distributor").val("");
+		$("#nama").val("");
+		$("#no_tlp").val("");
+		$("#alamat").val("");
+	});
 });

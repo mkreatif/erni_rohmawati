@@ -61,13 +61,22 @@
                             class="form-control form-control-sm"></textarea>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col md-12">
-                        <input id="generalSubmitBtn" class="btn btn-success btn-sm" type="submit" value="Simpan" />
-                        <input id="generalDeleteBtn" class="btn btn-danger btn-sm" type="button" value="Delete" />
-                        <input id="generalEdit" class="btn btn-primary btn-sm" type="button" value="Edit" />
+                <div class="col-md-10">
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <input id="generalSubmitBtn" class="btn btn-success btn-sm btn-block" type="submit" value="Simpan" />
+                        </div>
+                        <div class="col-md-2">
+                            <input id="generalDeleteBtn" class="btn btn-danger btn-sm btn-block" type="button" value="Delete" />
+                        </div>
+                        <div class="col-md-2">
+                            <input id="generalEdit" class="btn btn-primary btn-sm btn-block" type="button" value="Edit" />
+                        </div>
+                        <div class="col-md-2">
+                            <input id="generalClear" class="btn btn-secondary btn-sm btn-block" type="button" value="Clear Form" />
+                        </div>
                     </div>
-                </div>
+               </div>
             </form>
         </div>
 

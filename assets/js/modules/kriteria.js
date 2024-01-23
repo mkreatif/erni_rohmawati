@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
 	$("#formKriteria").submit(function (event) {
 		// Prevent the default form submission
 		event.preventDefault();
@@ -15,16 +14,16 @@ $(document).ready(function () {
 			type: "POST",
 			url: slug,
 			data: {
-				"K_kriteria": KKriteria,
-				"N_kriteria": NKriteria,
-				"P_kriteria": PKriteria,
+				K_kriteria: KKriteria,
+				N_kriteria: NKriteria,
+				P_kriteria: PKriteria,
 			},
 			dataType: "json",
-			success: function (response) { 
+			success: function (response) {
 				console.log(response["data"]);
-				if(response['status'] == "failed"){
+				if (response["status"] == "failed") {
 					alert(response["message"]);
-				}else{
+				} else {
 					alert(response["message"]);
 					location.reload();
 				}
@@ -36,5 +35,21 @@ $(document).ready(function () {
 		});
 	});
 
-	 
+	$("#generalEdit").click(function () {
+		var table = $("#GeneralDataTable").DataTable();
+		var row = table.rows(".selected").data();
+		if (row.length > 0) {
+			var selected = row[0];
+			$("#K_kriteria").val(selected[0]);
+			$("#N_kriteria").val(selected[1]);
+			$("#P_kriteria").val(selected[2]);
+		} else {
+			alert("Silahkan Pilih Salah Satu Row di DataTable!");
+		}
+	});
+	$("#generalClear").click(function () {
+		$("#K_kriteria").val('');
+		$("#N_kriteria").val("");
+		$("#P_kriteria").val("");
+	});
 });

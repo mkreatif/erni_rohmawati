@@ -79,4 +79,37 @@ $(document).ready(function () {
 		$("#nama").val(data.distributor);
 		$("#perusahaan").val(data.nama);
 	});
+
+	$("#generalEdit").click(function () {
+		var table = $("#GeneralDataTable").DataTable();
+		var row = table.rows(".selected").data();
+		if (row.length > 0) {
+			var selected = row[0];
+			$("#kode_distributor").val(selected[0]);
+			$("#nama").val(selected[1]);
+			$("#perusahaan").val(selected[2]);
+			$("#N1").val(selected[3]);
+			$("#N2").val(selected[4]);
+			$("#N3").val(selected[5]);
+			$("#N4").val(selected[6]);
+			$("#N5").val(selected[7]);
+			$("#N_akhir").val(selected[8]);
+			$("#N_ket").val(selected[9]);
+		} else {
+			alert("Silahkan Pilih Salah Satu Row di DataTable!");
+		}
+	});
+
+	$("#generalClear").click(function () {
+		$("#kode_distributor").val("");
+		$("#nama").val("");
+		$("#perusahaan").val("");
+		$("#N1").val("");
+		$("#N2").val("");
+		$("#N3").val("");
+		$("#N4").val("");
+		$("#N5").val("");
+		$("#N_akhir").val("");
+		$("#N_ket").val("");
+	});
 });
