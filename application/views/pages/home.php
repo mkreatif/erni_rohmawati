@@ -1,5 +1,6 @@
-<?php
-// Redirect to a specific page
-$baseurl = base_url('login');
-header("Location: ".$baseurl);
-exit(); // Make sure to exit after a header redirect
+<script>
+  setTimeout(function () {
+    var baseurl= "<?=base_url('login');?>";
+    window.location.href = baseurl;
+  }, 500);
+</script>
