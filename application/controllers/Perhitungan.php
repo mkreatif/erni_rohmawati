@@ -20,7 +20,20 @@ class Perhitungan extends CI_Controller
             "assets/js/modules/perhitungan.js?v=".time(),
         ];
         $this->load->view('templates/header', $data);
-        $this->load->view("perhitungan/data_perhitungan.php");
+        $this->load->view("perhitungan/data_perhitungan");
+        $this->load->view('templates/footer');
+    } 
+
+    public function rekomendasi(){
+        $data['title'] = "Rekomendasi Jalur";
+
+
+        $data['db_entries'] = $this->perhitungan->get_all(); 
+        $data["scripts"] = [
+            "assets/js/modules/rekomendasi_jalur.js?v=".time(),
+        ];
+        $this->load->view('templates/header', $data);
+        $this->load->view("perhitungan/distribusi_jalur");
         $this->load->view('templates/footer');
     } 
     
@@ -62,4 +75,6 @@ class Perhitungan extends CI_Controller
         }
 
     }
+
+
 }

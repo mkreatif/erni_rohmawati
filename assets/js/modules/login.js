@@ -40,14 +40,14 @@ $(document).ready(function () {
 				console.log(response["data"]);
 				if(response['status'] == "failed"){
 
-					alert(response["message"]);
+					showInfo(response["message"]);
 				}else{
 					window.location.href = base_url + "dashboard";
 				}
 			},
 			error: function (error) {
 				console.log(error);
-				alert("Error submitting data");
+				showInfo("Error submitting data");
 			},
 		});
 	});

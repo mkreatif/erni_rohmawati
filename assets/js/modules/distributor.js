@@ -27,15 +27,15 @@ $(document).ready(function () {
 			success: function (response) {
 				console.log(response["data"]);
 				if (response["status"] == "failed") {
-					alert(response["message"]);
+					showInfo(response["message"]);
 				} else {
-					alert(response["message"]);
+					showInfo(response["message"]);
 					location.reload();
 				}
 			},
 			error: function (error) {
 				console.log(error);
-				alert("Error submitting data");
+				showInfo("Error submitting data");
 			},
 		});
 	});
@@ -56,7 +56,7 @@ $(document).ready(function () {
 			$("#no_tlp").val(selected[3]);
 			$("#alamat").val(selected[4]);
 		} else {
-			alert("Silahkan Pilih Salah Satu Row di DataTable!");
+			showInfo("Silahkan Pilih Salah Satu Row di DataTable!");
 		}
 	});
 

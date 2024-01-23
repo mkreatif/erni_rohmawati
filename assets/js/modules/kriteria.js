@@ -22,15 +22,15 @@ $(document).ready(function () {
 			success: function (response) {
 				console.log(response["data"]);
 				if (response["status"] == "failed") {
-					alert(response["message"]);
+					showInfo(response["message"]);
 				} else {
-					alert(response["message"]);
+					showInfo(response["message"]);
 					location.reload();
 				}
 			},
 			error: function (error) {
 				console.log(error);
-				alert("Error submitting data");
+				showInfo("Error submitting data");
 			},
 		});
 	});
@@ -44,7 +44,7 @@ $(document).ready(function () {
 			$("#N_kriteria").val(selected[1]);
 			$("#P_kriteria").val(selected[2]);
 		} else {
-			alert("Silahkan Pilih Salah Satu Row di DataTable!");
+			showInfo("Silahkan Pilih Salah Satu Row di DataTable!");
 		}
 	});
 	$("#generalClear").click(function () {
