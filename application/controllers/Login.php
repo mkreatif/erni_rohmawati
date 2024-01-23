@@ -26,19 +26,18 @@ class Login extends CI_Controller
     {
         try {
             // Process submitted data
-            $username = $this->input->post('Username');
-            $password = $this->input->post('Password');
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
             if (isset($username) && isset($password)) {
-                $data = $this->login_model->get_by_conditions(array("Username"=>$username, "Password"=> $password));
-                $where = array("Username" => $username, "Passwrod" => $password);
+                $data = $this->login_model->get_by_conditions(array("username"=>$username, "password"=> $password));
                 // Return response (you can also return JSON)
                 if (isset($data) && !empty($data)) {
-                    echo json_encode(['status' => 'success', 'message' => 'Anda Berhasil Login', "data" => $where, "data2" => $data]);
+                    echo json_encode(['status' => 'success', 'message' => 'Anda Berhasil Login',  "data" => $data]);
                 } else {
-                    echo json_encode(['status' => 'failed', 'message' => 'Username atau Password Salah', "data" => $where, "data2" => $data]);
+                    echo json_encode(['status' => 'failed', 'message' => 'Username atau Password Salah', "data" => $data]);
                 }
             }else{
-                echo json_encode(['status' => 'failed', 'message' => 'Inputan Tidak Lengkap', "data" => null, "data2" => null]);
+                echo json_encode(['status' => 'failed', 'message' => 'Inputan Tidak Lengkap', "data" => null]);
             }
 
         } catch (Exception $e) {

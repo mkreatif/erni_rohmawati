@@ -31,7 +31,7 @@ var generateSerialID = generateSerialID('DS', <?= count($db_entries)+1   ;?>);
 
     <Section class="my-4">
         <table id="RekomendasiJalurDataTable" class="table table-striped table-bordered" style="width:100%">
-            <thead>
+        <thead>
                 <tr>
                     <th>KODE DISTRIBUTOR</th>
                     <th>NAMA</th>
@@ -50,7 +50,7 @@ var generateSerialID = generateSerialID('DS', <?= count($db_entries)+1   ;?>);
                 <tr>
                     <td><?=$entry->kode_distributor;?></td>
                     <td><?=$entry->nama;?></td>
-                    <td><?=$entry->perusahaan;?></td>
+                    <td><?=$entry->distributor;?></td>
                     <td><?=$entry->N1?></td>
                     <td><?=$entry->N2?></td>
                     <td><?=$entry->N3?></td>

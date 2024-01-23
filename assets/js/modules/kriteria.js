@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	var DT_RowId;
 	$("#formKriteria").submit(function (event) {
 		// Prevent the default form submission
 		event.preventDefault();
@@ -24,8 +25,8 @@ $(document).ready(function () {
 				if (response["status"] == "failed") {
 					showInfo(response["message"]);
 				} else {
+					globalRefresh = true;
 					showInfo(response["message"]);
-					location.reload();
 				}
 			},
 			error: function (error) {
@@ -43,6 +44,7 @@ $(document).ready(function () {
 			$("#K_kriteria").val(selected[0]);
 			$("#N_kriteria").val(selected[1]);
 			$("#P_kriteria").val(selected[2]);
+			DT_RowId = selected['DT_RowId'];
 		} else {
 			showInfo("Silahkan Pilih Salah Satu Row di DataTable!");
 		}

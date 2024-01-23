@@ -41,9 +41,7 @@ $(document).ready(function () {
 				type: "POST",
 				url: slug,
 				data: {
-					kode_distributor: $("#kode_distributor").val(),
-					nama: $("#nama").val(),
-					perusahaan: $("#perusahaan").val(),
+					kode_distributor: $("#kode_distributor").val(), 
 					N1: $("#N1").val(),
 					N2: $("#N2").val(),
 					N3: $("#N3").val(),
@@ -58,8 +56,8 @@ $(document).ready(function () {
 					if (response["status"] == "failed") {
 						showInfo(response["message"]);
 					} else {
-						showInfo(response["message"]);
-						location.reload();
+						globalRefresh = true;
+						showInfo(response["message"]); 
 					}
 				},
 				error: function (error) {
@@ -73,7 +71,7 @@ $(document).ready(function () {
 	$("#kode_distributor").change(function () {
 		var selectedValue = $(this).val();
 		var data = dis_option_ci.find(function (obj) {
-			return obj.Id === selectedValue;
+			return obj.id === selectedValue;
 		});
 		console.log(data);
 		$("#nama").val(data.distributor);

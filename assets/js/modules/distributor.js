@@ -17,7 +17,7 @@ $(document).ready(function () {
 			type: "POST",
 			url: slug,
 			data: {
-				Id: kode,
+				id: kode,
 				distributor: distributor,
 				nama: nama,
 				no_tlp: no_tlp,
@@ -29,8 +29,8 @@ $(document).ready(function () {
 				if (response["status"] == "failed") {
 					showInfo(response["message"]);
 				} else {
+					globalRefresh = true;
 					showInfo(response["message"]);
-					location.reload();
 				}
 			},
 			error: function (error) {

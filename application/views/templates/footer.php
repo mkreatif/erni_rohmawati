@@ -49,6 +49,13 @@
                 $("#modal-info").modal();
             };
 
+            $("#modal-info").on('hide.bs.modal', function (e) {
+                if(globalRefresh){
+                    globalRefresh = false;
+                    location.reload();
+                }
+             }); 
+
             $(document).ready(function() {
                 $(document).ajaxStart(function() {
                     // Show loading overlay when AJAX starts

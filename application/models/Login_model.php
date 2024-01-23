@@ -1,25 +1,12 @@
 <?php
 class Login_model extends Base_model
 {
-    protected $table = 'login';
+    protected $table = 'table_user';
     public function __construct()
     {
 
         $this->load->database();
 
-    }
-
-    public function get_credentials($username, $password)
-    {
-
-        $this->db->select('*');
-        $this->db->from('login');
-        if (isset($username) && isset($password)) {
-            $this->db->where("Username", $username);
-            $this->db->where("Password", $password);
-        }
-        $query = $this->db->get();
-        return $query->first_row();
-    }
+    } 
 
 }

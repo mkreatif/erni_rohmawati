@@ -39,14 +39,14 @@ class Distributor extends CI_Controller
     {
         try {
             // Process submitted data
-            $in1 = $this->input->post('Id');
+            $in1 = $this->input->post('id');
             $in2 = $this->input->post('distributor');
             $in3 = $this->input->post('nama');
             $in4 = $this->input->post('no_tlp');
             $in5 = $this->input->post('alamat');
 
             $result = $this->distributor->insert(array(
-                "Id"=> $in1,
+                "id"=> $in1,
 				"distributor"=> $in2,
 				"nama"=> $in3,
 				"no_tlp"=> $in4,

@@ -10,6 +10,7 @@
     <title><?php echo $title; ?></title>
     <script>
         var base_url = "<?php echo base_url(); ?>";
+        var globalRefresh = false;
         // Function to generate a serial ID based on the current number of data items
         function generateSerialID(prefix='D',currentCount) {
             // Calculate the number of leading zeros needed

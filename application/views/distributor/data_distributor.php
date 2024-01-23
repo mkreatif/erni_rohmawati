@@ -96,7 +96,7 @@
             <tbody>
                 <?php foreach($db_entries as $entry) {?>
                 <tr>
-                    <td><?= $entry->Id;?></td>
+                    <td><?= $entry->id;?></td>
                     <td><?= $entry->distributor;?></td>
                     <td><?= $entry->nama;?></td>
                     <td><?= $entry->no_tlp;?></td>

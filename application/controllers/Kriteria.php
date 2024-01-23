@@ -19,7 +19,7 @@ class Kriteria extends CI_Controller
         $data["option_bobot"] = array("10", "15", "20");
         $data["db_entries"] = $this->kriteria->get_all();
         $data["scripts"] = [
-            "assets/js/modules/kriteria.js",
+            "assets/js/modules/kriteria.js?v=".time(),
         ];
         $this->load->view('templates/header', $data);
         $this->load->view("kriteria/kriteria.php");
@@ -43,9 +43,9 @@ class Kriteria extends CI_Controller
             $pk = $this->input->post('P_kriteria');
 
             $result = $this->kriteria->insert(array(
-                "K_kriteria" => $kk,
-                "N_kriteria" => $nk,
-                "P_kriteria" => $pk,
+                "k_kriteria" => $kk,
+                "n_kriteria" => $nk,
+                "p_kriteria" => $pk,
             ));
 
             if (isset($result)) {

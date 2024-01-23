@@ -17,11 +17,7 @@ $(document).ready(function () {
 		// Prevent the default form submission
 		event.preventDefault();
 		var username = $("#username").val();
-		var password = $("#passwordEl").val();
-
-		var formData = new FormData();
-		formData.append("Username", username);
-		formData.append("Password", password);
+		var password = $("#passwordEl").val(); 
 
 		var slug = base_url + "login/sign_in";
 		console.log(slug);
@@ -31,8 +27,8 @@ $(document).ready(function () {
 			type: "POST",
 			url: slug,
 			data: {
-				Username: username,
-				Password: password,
+				username: username,
+				password: password,
 			},
 			dataType: "json",
 			success: function (response) {

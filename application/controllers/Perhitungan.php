@@ -14,7 +14,7 @@ class Perhitungan extends CI_Controller
 
     public function index(){
         $data['title'] = "Data Perhitungan";
-        $data['db_entries'] = $this->perhitungan->get_all();
+        $data['db_entries'] = $this->perhitungan->get_perhitungan_distributors();
         $data['db_distributors'] = $this->distributor->get_all();
         $data["scripts"] = [
             "assets/js/modules/perhitungan.js?v=".time(),
@@ -28,7 +28,7 @@ class Perhitungan extends CI_Controller
         $data['title'] = "Rekomendasi Jalur";
 
 
-        $data['db_entries'] = $this->perhitungan->get_all(); 
+        $data['db_entries'] = $this->perhitungan->get_perhitungan_distributors(); 
         $data["scripts"] = [
             "assets/js/modules/rekomendasi_jalur.js?v=".time(),
         ];
@@ -42,8 +42,6 @@ class Perhitungan extends CI_Controller
         try {
             // Process submitted data
             $in1 = $this->input->post('kode_distributor');
-            $in2 = $this->input->post('nama');
-            $in3 = $this->input->post('perusahaan');
             $in4 = $this->input->post('N1');
             $in5 = $this->input->post('N2');
             $in6 = $this->input->post('N3');
@@ -54,8 +52,6 @@ class Perhitungan extends CI_Controller
 
             $result = $this->perhitungan->insert(array(
                 "kode_distributor"=> $in1,
-				"nama"=> $in2,
-				"perusahaan"=> $in3,
 				"N1"=> $in4,
 				"N2"=> $in5,
 				"N3"=> $in6,

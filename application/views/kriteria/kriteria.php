@@ -91,10 +91,10 @@
             </thead>
             <tbody>
                 <?php foreach($db_entries as $entry) {?>
-                <tr>
-                    <td><?= $entry->K_kriteria;?></td>
-                    <td><?= $entry->N_kriteria;?></td>
-                    <td><?= $entry->P_kriteria;?></td>
+                <tr id="<?= $entry->id?>">
+                    <td><?= $entry->k_kriteria;?></td>
+                    <td><?= $entry->n_kriteria;?></td>
+                    <td><?= $entry->p_kriteria;?></td>
                 </tr>
                 <?php } ?>
             </tbody>

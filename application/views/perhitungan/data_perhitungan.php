@@ -38,7 +38,7 @@
                                 <select class="form-control form-control-sm" id="kode_distributor">
                                     <option value="" disabled selected>Pilih Kode Distributor</option>
                                     <?php foreach ($db_distributors as $entry) {?>
-                                    <option value="<?=$entry->Id;?>"><?=$entry->Id;?></option>
+                                    <option value="<?=$entry->id;?>"><?=$entry->id;?></option>
                                     <?php }?>
                                 </select>
                             </div>
@@ -160,7 +160,7 @@
                 <tr>
                     <td><?=$entry->kode_distributor;?></td>
                     <td><?=$entry->nama;?></td>
-                    <td><?=$entry->perusahaan;?></td>
+                    <td><?=$entry->distributor;?></td>
                     <td><?=$entry->N1?></td>
                     <td><?=$entry->N2?></td>
                     <td><?=$entry->N3?></td>
