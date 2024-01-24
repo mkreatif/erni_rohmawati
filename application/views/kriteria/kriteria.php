@@ -27,7 +27,7 @@
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Kode Kriteria</label>
                     <div class="col-sm-5">
-                        <select class="form-control form-control-sm" id="K_kriteria">
+                        <select class="form-control form-control-sm" id="K_kriteria" required>
                             <option value="" disabled selected>Pilih Kode Kriteria</option>
                             <?php foreach ($option_kode as$value) {?>
                             <option value="<?=$value;?>"><?=$value;?></option>
@@ -38,7 +38,7 @@
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nama Kriteria</label>
                     <div class="col-sm-5">
-                        <select class="form-control form-control-sm" id="N_kriteria">
+                        <select class="form-control form-control-sm" id="N_kriteria" required>
                             <option value="" disabled selected>Pilih Nama Kriteria</option>
                             <?php foreach ($option_nama as $value) {?>
                             <option value="<?=$value;?>"><?=$value;?></option>
@@ -50,7 +50,7 @@
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nilai Bobot
                         Preferensi</label>
                     <div class="col-sm-5">
-                        <select class="form-control form-control-sm" id="P_kriteria">
+                        <select class="form-control form-control-sm" id="P_kriteria" required>
                             <option value="" disabled selected>Pilih Nilai Bobot Preferensi</option>
                             <?php foreach ($option_bobot as $value) {?>
                             <option value="<?=$value;?>"><?=$value;?></option>

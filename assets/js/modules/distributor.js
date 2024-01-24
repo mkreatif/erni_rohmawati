@@ -1,6 +1,27 @@
 $(document).ready(function () {
 	var DT_RowId;
 	$("#kode").val(generateSerialID);
+
+	$("#formKriteria").validate({
+		// Specify validation rules for your form fields
+		rules: {
+			kode: {
+				required: true,
+			},
+			distributor: {
+				required: true,
+			},
+			nama: {
+				required: true,
+			}, 
+			no_tlp: {
+				required: true,
+			}, 
+			alamat: {
+				required: true,
+			}, 
+		},
+	});
 	$("#formDistributor").submit(function (event) {
 		// Prevent the default form submission
 		event.preventDefault();

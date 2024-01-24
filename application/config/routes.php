@@ -64,6 +64,8 @@ $route['kriteria/create/(:any)'] = 'kriteria/create/$1';
 $route['kriteria'] = 'kriteria';
 // PERHITUNGAN DISTRIBUTOR
 $route['data-perhitungan/save'] = 'perhitungan/create';
+$route['data-perhitungan/update/(:any)'] = 'perhitungan/update/$1';
+$route['data-perhitungan/delete/(:any)'] = 'perhitungan/delete/$1';
 $route['rekomendasi-jalur'] = 'perhitungan/rekomendasi';
 $route['data-perhitungan'] = 'perhitungan';
 // DISTRIBUTOR

@@ -1,5 +1,20 @@
 $(document).ready(function () {
 	var DT_RowId;
+
+	$("#formKriteria").validate({
+		// Specify validation rules for your form fields
+		rules: {
+			K_kriteria: {
+				required: true,
+			},
+			N_kriteria: {
+				required: true,
+			},
+			P_kriteria: {
+				required: true,
+			}, 
+		},
+	});
 	$("#formKriteria").submit(function (event) {
 		// Prevent the default form submission
 		event.preventDefault();

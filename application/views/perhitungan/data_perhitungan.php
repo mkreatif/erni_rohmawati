@@ -157,7 +157,7 @@
             </thead>
             <tbody>
                 <?php foreach ($db_entries as $entry) {?>
-                <tr>
+                <tr id="<?=$entry->id;?>">
                     <td><?=$entry->kode_distributor;?></td>
                     <td><?=$entry->nama;?></td>
                     <td><?=$entry->distributor;?></td>
