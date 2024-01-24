@@ -111,4 +111,11 @@ $(document).ready(function () {
 			.nodes()
 			.each((row) => row.classList.remove("selected"));
 	});
+
+	$("#K_kriteria").change(function () {
+		var K_kriteria = $(this).val();
+		var kriteria = defaultKriteria.find((k) => k.code == K_kriteria);
+		$("#N_kriteria").val(kriteria.name);
+		$("#P_kriteria").val(kriteria.bobot);
+	});
 });

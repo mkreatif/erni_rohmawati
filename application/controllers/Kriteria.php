@@ -14,12 +14,19 @@ class Kriteria extends CI_Controller
     public function index()
     {
         $data['title'] = "Kriteria";
-        $data["option_kode"] = array("C1", "C2", "C3", "C4", "C5");
+        $data["option_kode"] = array("A1", "A2", "A3", "A4", "A5");
         $data["option_nama"] = array("Jarak", "Estimasi", "Kapasitas", "Biaya", "Skill");
         $data["option_bobot"] = array("10", "15", "20");
+        $data["default_kriteria"] = [
+            array("code" => "A1", "name" => "Jarak", "bobot" => "20"),
+            array("code" => "A2", "name" => "Estimasi", "bobot" => "20"),
+            array("code" => "A3", "name" => "Kapasitas", "bobot" => "15"),
+            array("code" => "A4", "name" => "Biaya", "bobot" => "15"),
+            array("code" => "A5", "name" => "Skill", "bobot" => "20"),
+        ];
         $data["db_entries"] = $this->kriteria->get_all();
         $data["scripts"] = [
-            "assets/js/modules/kriteria.js?v=".time(),
+            "assets/js/modules/kriteria.js?v=" . time(),
         ];
         $data['content_view'] = 'kriteria/kriteria';
         $this->load->view('templates/template', $data);
@@ -40,13 +47,13 @@ class Kriteria extends CI_Controller
             $nk = $this->input->post('N_kriteria');
             $pk = $this->input->post('P_kriteria');
             $result;
-            if($id != -1){
+            if ($id != -1) {
                 $result = $this->kriteria->update($id, array(
                     "k_kriteria" => $kk,
                     "n_kriteria" => $nk,
                     "p_kriteria" => $pk,
                 ));
-            }else{
+            } else {
                 $result = $this->kriteria->insert(array(
                     "k_kriteria" => $kk,
                     "n_kriteria" => $nk,
