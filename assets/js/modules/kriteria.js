@@ -79,7 +79,7 @@ $(document).ready(function () {
 			showConfrim("Anda Yakin Hapus Data Ini?", function (value) {
 				// Make an AJAX request
 				$.ajax({
-					type: "DELETE",
+					type: "GET",
 					url: slug,
 					dataType: "json",
 					success: function (response) {
