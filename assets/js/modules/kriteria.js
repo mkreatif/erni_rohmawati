@@ -50,12 +50,48 @@ $(document).ready(function () {
 			DT_RowId = selected["DT_RowId"];
 			console.log(DT_RowId);
 		} else {
-			showInfo("Silahkan Pilih Salah Satu Row di DataTable!");
+			showInfo("Silahkan Pilih Row Di DataTable!");
+		}
+	});
+	$("#generalDeleteBtn").click(function () {
+		var table = $("#GeneralDataTable").DataTable();
+		var row = table.rows(".selected").data();
+		if (row.length > 0) {
+			var selected = row[0];
+			var slug = base_url + "kriteria/delete/" + selected["DT_RowId"];
+			showConfrim("Anda Yakin Hapus Data Ini?", function (value) {
+				// Make an AJAX request
+				$.ajax({
+					type: "DELETE",
+					url: slug,
+					dataType: "json",
+					success: function (response) {
+						console.log(response["data"]);
+						showInfo(response["message"]);
+						if (response["status"] == "failed") {
+						} else {
+							globalRefresh = true;
+						}
+					},
+					error: function (error) {
+						console.log(error);
+						showInfo("Error submitting data");
+					},
+				});
+			});
+		} else {
+			showInfo("Silahkan Pilih Row Di DataTable!");
 		}
 	});
 	$("#generalClear").click(function () {
 		$("#K_kriteria").val("");
 		$("#N_kriteria").val("");
 		$("#P_kriteria").val("");
+
+		$("#GeneralDataTable")
+			.DataTable()
+			.rows(".selected")
+			.nodes()
+			.each((row) => row.classList.remove("selected"));
 	});
 });

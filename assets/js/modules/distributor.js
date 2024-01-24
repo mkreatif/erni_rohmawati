@@ -56,7 +56,7 @@ $(document).ready(function () {
 			$("#no_tlp").val(selected[3]);
 			$("#alamat").val(selected[4]);
 		} else {
-			showInfo("Silahkan Pilih Salah Satu Row di DataTable!");
+			showInfo("Silahkan Pilih Row Di DataTable!");
 		}
 	});
 

@@ -56,6 +56,7 @@ $route['dashboard'] = 'dashboard';
 $route['rekomendasi-jalur'] = 'perhitungan/rekomendasi';
 $route['eigen-vektor'] = 'eigenvektor';
 $route['bobot-kriteria'] = 'kriteria/bobot';
+$route['kriteria/delete/(:any)'] = 'kriteria/delete/$1'; 
 $route['kriteria/create/(:any)'] = 'kriteria/create/$1'; 
 $route['kriteria'] = 'kriteria';
 $route['data-perhitungan/save'] = 'perhitungan/create';

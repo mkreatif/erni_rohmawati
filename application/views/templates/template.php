@@ -28,7 +28,7 @@
 <body>
     <!-- Page-specific content goes here -->
     <section>
-        <?php $this->load->view($content_view, ); ?>
+        <?php $this->load->view($content_view, );?>
     </section>
     <section>
         <!-- The Confirmation Modal -->
@@ -37,12 +37,12 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+                        <h5 class="modal-title" id="confirmTitleContent"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id="confirmBodyContent">
                         <p>Are you sure you want to perform this action?</p>
                     </div>
                     <div class="modal-footer">
@@ -57,7 +57,7 @@
             <div class="spinner"></div>
         </div>
 
-        <!-- The Modal -->
+        <!-- The Info Modal -->
         <div class="modal" id="modal-info">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -102,6 +102,22 @@
 
         // Open the modal
         $("#modal-info").modal();
+    };
+
+    function showConfrim(message, callback, title = "Konfirmasi") {
+        // Update modal body content
+        $("#confirmTitleContent").html(`<p>${title}</p>`);
+        $("#confirmBodyContent").html(`<p class='text-center'>${message}</p>`);
+
+        // Open the modal
+        $("#confirmationModal").modal();
+
+        $('#confirmAction').on('click', function() {
+            $('#confirmationModal').modal('hide');
+            if (typeof callback === 'function') {
+                callback(true);
+            }
+        });
     };
 
     $("#modal-info").on('hide.bs.modal', function(e) {

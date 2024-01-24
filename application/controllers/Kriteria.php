@@ -64,5 +64,19 @@ class Kriteria extends CI_Controller
         }
 
     }
+    public function delete($id = -1)
+    {
+        try {
+            $result = $this->kriteria->delete($id);
+            if (isset($result)) {
+                echo json_encode(['status' => 'success', 'message' => 'Data Berhasil Hapus Data', "data" => $result]);
+            } else {
+                echo json_encode(['status' => 'failed', 'message' => 'Data Gagal Hapus Data', "data" => $result]);
+            }
+        } catch (Throwable $th) {
+            throw $th;
+        }
+
+    }
 
 }

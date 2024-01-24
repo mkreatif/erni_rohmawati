@@ -94,7 +94,7 @@ $(document).ready(function () {
 			$("#N_akhir").val(selected[8]);
 			$("#N_ket").val(selected[9]);
 		} else {
-			showInfo("Silahkan Pilih Salah Satu Row di DataTable!");
+			showInfo("Silahkan Pilih Row Di DataTable!");
 		}
 	});
 
