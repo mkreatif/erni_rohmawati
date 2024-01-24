@@ -47,7 +47,7 @@ var generateSerialID = generateSerialID('DS', <?= count($db_entries)+1   ;?>);
             </thead>
             <tbody>
                 <?php foreach ($db_entries as $entry) {?>
-                <tr>
+                <tr id="<?=$entry->id;?>">
                     <td><?=$entry->kode_distributor;?></td>
                     <td><?=$entry->nama;?></td>
                     <td><?=$entry->distributor;?></td>
@@ -71,14 +71,14 @@ var generateSerialID = generateSerialID('DS', <?= count($db_entries)+1   ;?>);
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 id="modalTitleContent" class="modal-title">
+                    <h4 id="modalChartTitle" class="modal-title">
                         <!-- Modal Title -->
                     </h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal Body -->
-                <div class="modal-body" id="modalBodyContent">
+                <div class="modal-body" id="modalChartBody">
                     <canvas id="myChart" width="1000" height="400"></canvas>
                 </div>
 
