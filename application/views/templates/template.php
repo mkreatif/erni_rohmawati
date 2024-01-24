@@ -22,6 +22,17 @@
 
         return serialID;
     }
+
+    function getNumericFromStr(value) {
+        console.log(value);
+        const match = value.match(/\d+/);
+        // Check if numeric part is found
+        if (match) {
+            return numericValue = parseInt(match[0], 10) +1; 
+        } else {
+            return 0 +1;
+        }
+    }
     </script>
 </head>
 

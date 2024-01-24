@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	var DT_RowId;
 	$("#kode").val(generateSerialID);
 	$("#formDistributor").submit(function (event) {
 		// Prevent the default form submission
@@ -9,9 +10,11 @@ $(document).ready(function () {
 		var no_tlp = $("#no_tlp").val();
 		var alamat = $("#alamat").val();
 
-		var slug = base_url + "data-distributor/save";
+		var slug = base_url + "data-distributor/create";
+		if (DT_RowId) {
+			slug = `${base_url}data-distributor/update/${DT_RowId}`;
+		}
 		console.log(slug);
-
 		// Make an AJAX request
 		$.ajax({
 			type: "POST",
@@ -55,6 +58,8 @@ $(document).ready(function () {
 			$("#nama").val(selected[2]);
 			$("#no_tlp").val(selected[3]);
 			$("#alamat").val(selected[4]);
+			DT_RowId = selected["DT_RowId"];
+			console.log(DT_RowId);
 		} else {
 			showInfo("Silahkan Pilih Row Di DataTable!");
 		}
@@ -66,5 +71,42 @@ $(document).ready(function () {
 		$("#nama").val("");
 		$("#no_tlp").val("");
 		$("#alamat").val("");
+
+		$("#GeneralDataTable")
+			.DataTable()
+			.rows(".selected")
+			.nodes()
+			.each((row) => row.classList.remove("selected"));
 	});
+ 
+	$("#generalDeleteBtn").click(function () {
+		var table = $("#GeneralDataTable").DataTable();
+		var row = table.rows(".selected").data();
+		if (row.length > 0) {
+			var selected = row[0];
+			var slug = base_url + "data-distributor/delete/" + selected["DT_RowId"];
+			showConfrim("Anda Yakin Hapus Data Ini?", function (value) {
+				// Make an AJAX request
+				$.ajax({
+					type: "DELETE",
+					url: slug,
+					dataType: "json",
+					success: function (response) {
+						console.log(response["data"]);
+						showInfo(response["message"]);
+						if (response["status"] == "failed") {
+						} else {
+							globalRefresh = true;
+						}
+					},
+					error: function (error) {
+						console.log(error);
+						showInfo("Error submitting data");
+					},
+				});
+			});
+		} else {
+			showInfo("Silahkan Pilih Row Di DataTable!");
+		}
+	}); 
 });

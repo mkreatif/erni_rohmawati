@@ -26,9 +26,9 @@ class Distributor extends CI_Controller
             "Distributor I" => "Mas Kargo",
             "Distributor J" => "ID Ekspress",
         );
-        $data["db_entries"] = $this->distributor->get_all(); 
+        $data["db_entries"] = $this->distributor->get_all();
         $data["scripts"] = [
-            "assets/js/modules/distributor.js?v=".time(),
+            "assets/js/modules/distributor.js?v=" . time(),
         ];
         $data['content_view'] = 'distributor/data_distributor';
         $this->load->view('templates/template', $data);
@@ -43,19 +43,71 @@ class Distributor extends CI_Controller
             $in3 = $this->input->post('nama');
             $in4 = $this->input->post('no_tlp');
             $in5 = $this->input->post('alamat');
-
             $result = $this->distributor->insert(array(
-                "id"=> $in1,
-				"distributor"=> $in2,
-				"nama"=> $in3,
-				"no_tlp"=> $in4,
-				"alamat"=> $in5,
+                "id" => $in1,
+                "distributor" => $in2,
+                "nama" => $in3,
+                "no_tlp" => $in4,
+                "alamat" => $in5,
             ));
 
             if (isset($result)) {
                 echo json_encode(['status' => 'success', 'message' => 'Data Berhasil Disimpan', "data" => $result]);
             } else {
                 echo json_encode(['status' => 'failed', 'message' => 'Data Gagal Disimpan', "data" => $result]);
+            }
+        } catch (Throwable $th) {
+            throw $th;
+        }
+
+    }
+    public function update($id = -1)
+    {
+        try {
+            // Process submitted data
+            $in1 = $this->input->post('id');
+            $in2 = $this->input->post('distributor');
+            $in3 = $this->input->post('nama');
+            $in4 = $this->input->post('no_tlp');
+            $in5 = $this->input->post('alamat');
+            $result;
+            if ($id != -1) {
+                $result = $this->distributor->update($id, array(
+                    "id" => $in1,
+                    "distributor" => $in2,
+                    "nama" => $in3,
+                    "no_tlp" => $in4,
+                    "alamat" => $in5,
+                ));
+            } else {
+                $result = $this->distributor->insert(array(
+                    "id" => $in1,
+                    "distributor" => $in2,
+                    "nama" => $in3,
+                    "no_tlp" => $in4,
+                    "alamat" => $in5,
+                ));
+            }
+
+            if (isset($result)) {
+                echo json_encode(['status' => 'success', 'message' => 'Data Berhasil Disimpan', "data" => $result]);
+            } else {
+                echo json_encode(['status' => 'failed', 'message' => 'Data Gagal Disimpan', "data" => $result]);
+            }
+        } catch (Throwable $th) {
+            throw $th;
+        }
+
+    }
+
+    public function delete($id = -1)
+    {
+        try {
+            $result = $this->distributor->delete($id);
+            if (isset($result)) {
+                echo json_encode(['status' => 'success', 'message' => 'Data Berhasil Hapus Data', "data" => $result]);
+            } else {
+                echo json_encode(['status' => 'failed', 'message' => 'Data Gagal Hapus Data', "data" => $result]);
             }
         } catch (Throwable $th) {
             throw $th;

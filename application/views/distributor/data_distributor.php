@@ -1,6 +1,15 @@
 <script>
     var dis_option_ci = <?php echo json_encode($dis_options); ?>;
-    var generateSerialID = generateSerialID('DS', <?= count($db_entries)+1   ;?>);
+    var dbentries = <?php echo json_encode($db_entries); ?>;
+    var count = 0;
+    if (dbentries.length > 0) {
+        var lastElement = dbentries[dbentries.length - 1];
+        count = getNumericFromStr(lastElement.id);
+    }
+    if(count==0){
+        count++;
+    }
+    var generateSerialID = generateSerialID('DS', count);
 </script>
 <!-- Main Content -->
 <div class="container">
@@ -26,7 +35,7 @@
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Kode
                         Distributor</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control form-control-sm" id="kode" 
+                        <input type="text" class="form-control form-control-sm" id="kode"
                             placeholder="Kode Distributor">
                     </div>
                 </div>
@@ -64,19 +73,23 @@
                 <div class="col-md-10">
                     <div class="form-group row">
                         <div class="col-md-2">
-                            <input id="generalSubmitBtn" class="btn btn-success btn-sm btn-block" type="submit" value="Simpan" />
+                            <input id="generalSubmitBtn" class="btn btn-success btn-sm btn-block" type="submit"
+                                value="Simpan" />
                         </div>
                         <div class="col-md-2">
-                            <input id="generalDeleteBtn" class="btn btn-danger btn-sm btn-block" type="button" value="Delete" />
+                            <input id="generalDeleteBtn" class="btn btn-danger btn-sm btn-block" type="button"
+                                value="Delete" />
                         </div>
                         <div class="col-md-2">
-                            <input id="generalEdit" class="btn btn-primary btn-sm btn-block" type="button" value="Edit" />
+                            <input id="generalEdit" class="btn btn-primary btn-sm btn-block" type="button"
+                                value="Edit" />
                         </div>
                         <div class="col-md-2">
-                            <input id="generalClear" class="btn btn-secondary btn-sm btn-block" type="button" value="Clear Form" />
+                            <input id="generalClear" class="btn btn-secondary btn-sm btn-block" type="button"
+                                value="Clear Form" />
                         </div>
                     </div>
-               </div>
+                </div>
             </form>
         </div>
 
@@ -95,7 +108,7 @@
             </thead>
             <tbody>
                 <?php foreach($db_entries as $entry) {?>
-                <tr>
+                <tr id="<?= $entry->id;?>">
                     <td><?= $entry->id;?></td>
                     <td><?= $entry->distributor;?></td>
                     <td><?= $entry->nama;?></td>
