@@ -56,6 +56,9 @@ $route['login'] = 'login';
 $route['dashboard/(:any)'] = 'dashboard';
 $route['dashboard'] = 'dashboard';
 // EIGENT VEKTOR
+$route['eigen-vektor/create'] = 'eigenvektor/create';
+$route['eigen-vektor/update/(:any)'] = 'eigenvektor/update/$1';
+$route['eigen-vektor/delete/(:any)'] = 'eigenvektor/delete/$1';
 $route['eigen-vektor'] = 'eigenvektor';
 // KRITERIA
 $route['bobot-kriteria'] = 'kriteria/bobot';
