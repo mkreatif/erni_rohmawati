@@ -2,7 +2,7 @@ $(document).ready(function () {
 	var DT_RowId;
 	$("#kode").val(generateSerialID);
 
-	$("#formKriteria").validate({
+	$("#formDistributor").validate({
 		// Specify validation rules for your form fields
 		rules: {
 			kode: {
@@ -13,55 +13,57 @@ $(document).ready(function () {
 			},
 			nama: {
 				required: true,
-			}, 
+			},
 			no_tlp: {
 				required: true,
-			}, 
+			},
 			alamat: {
 				required: true,
-			}, 
+			},
 		},
 	});
 	$("#formDistributor").submit(function (event) {
 		// Prevent the default form submission
 		event.preventDefault();
-		var kode = $("#kode").val();
-		var distributor = $("#distributor").val();
-		var nama = $("#nama").val();
-		var no_tlp = $("#no_tlp").val();
-		var alamat = $("#alamat").val();
+		if ($("#formDistributor").valid()) {
+			var kode = $("#kode").val();
+			var distributor = $("#distributor").val();
+			var nama = $("#nama").val();
+			var no_tlp = $("#no_tlp").val();
+			var alamat = $("#alamat").val();
 
-		var slug = base_url + "data-distributor/create";
-		if (DT_RowId) {
-			slug = `${base_url}data-distributor/update/${DT_RowId}`;
+			var slug = base_url + "data-distributor/create";
+			if (DT_RowId) {
+				slug = `${base_url}data-distributor/update/${DT_RowId}`;
+			}
+			console.log(slug);
+			// Make an AJAX request
+			$.ajax({
+				type: "POST",
+				url: slug,
+				data: {
+					id: kode,
+					distributor: distributor,
+					nama: nama,
+					no_tlp: no_tlp,
+					alamat: alamat,
+				},
+				dataType: "json",
+				success: function (response) {
+					console.log(response["data"]);
+					if (response["status"] == "failed") {
+						showInfo(response["message"]);
+					} else {
+						globalRefresh = true;
+						showInfo(response["message"]);
+					}
+				},
+				error: function (error) {
+					console.log(error);
+					showInfo("Error submitting data");
+				},
+			});
 		}
-		console.log(slug);
-		// Make an AJAX request
-		$.ajax({
-			type: "POST",
-			url: slug,
-			data: {
-				id: kode,
-				distributor: distributor,
-				nama: nama,
-				no_tlp: no_tlp,
-				alamat: alamat,
-			},
-			dataType: "json",
-			success: function (response) {
-				console.log(response["data"]);
-				if (response["status"] == "failed") {
-					showInfo(response["message"]);
-				} else {
-					globalRefresh = true;
-					showInfo(response["message"]);
-				}
-			},
-			error: function (error) {
-				console.log(error);
-				showInfo("Error submitting data");
-			},
-		});
 	});
 
 	$("#distributor").change(function () {
@@ -101,7 +103,7 @@ $(document).ready(function () {
 			.nodes()
 			.each((row) => row.classList.remove("selected"));
 	});
- 
+
 	$("#generalDeleteBtn").click(function () {
 		var table = $("#GeneralDataTable").DataTable();
 		var row = table.rows(".selected").data();
@@ -131,5 +133,5 @@ $(document).ready(function () {
 		} else {
 			showInfo("Silahkan Pilih Row Di DataTable!");
 		}
-	}); 
+	});
 });

@@ -35,7 +35,7 @@
                             <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Kode
                                 Distributor</label>
                             <div class="col-sm-8">
-                                <select class="form-control form-control-sm" id="kode_distributor">
+                                <select class="form-control form-control-sm" id="kode_distributor" required>
                                     <option value="" disabled selected>Pilih Kode Distributor</option>
                                     <?php foreach ($db_distributors as $entry) {?>
                                     <option value="<?=$entry->id;?>"><?=$entry->id;?></option>

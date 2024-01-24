@@ -42,7 +42,7 @@
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Distributor</label>
                     <div class="col-sm-5">
-                        <select class="form-control form-control-sm" id="distributor">
+                        <select class="form-control form-control-sm" id="distributor" required>
                             <option value="" disabled selected>Pilih Distributor</option>
                             <?php foreach ($dis_options as $key => $value) {?>
                             <option value="<?=$key;?>"><?=$key;?></option>
@@ -60,14 +60,14 @@
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">No Telepon</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control form-control-sm" id="no_tlp" placeholder="081234567890">
+                        <input type="text" class="form-control form-control-sm" id="no_tlp" placeholder="081234567890" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Alamat</label>
                     <div class="col-sm-5">
                         <textarea name="alamat" id="alamat" cols="30" rows="4" placeholder="Alamat"
-                            class="form-control form-control-sm"></textarea>
+                            class="form-control form-control-sm" required></textarea>
                     </div>
                 </div>
                 <div class="col-md-10">

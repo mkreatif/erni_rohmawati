@@ -12,46 +12,48 @@ $(document).ready(function () {
 			},
 			P_kriteria: {
 				required: true,
-			}, 
+			},
 		},
 	});
 	$("#formKriteria").submit(function (event) {
-		// Prevent the default form submission
-		event.preventDefault();
-		var KKriteria = $("#K_kriteria").val();
-		var NKriteria = $("#N_kriteria").val();
-		var PKriteria = $("#P_kriteria").val();
+		if ($("#formKriteria").valid()) {
+			// Prevent the default form submission
+			event.preventDefault();
+			var KKriteria = $("#K_kriteria").val();
+			var NKriteria = $("#N_kriteria").val();
+			var PKriteria = $("#P_kriteria").val();
 
-		var slug = base_url + "kriteria/create";
-		if (DT_RowId) {
-			slug += `/${DT_RowId}`;
+			var slug = base_url + "kriteria/create";
+			if (DT_RowId) {
+				slug += `/${DT_RowId}`;
+			}
+			console.log(slug);
+
+			// Make an AJAX request
+			$.ajax({
+				type: "POST",
+				url: slug,
+				data: {
+					K_kriteria: KKriteria,
+					N_kriteria: NKriteria,
+					P_kriteria: PKriteria,
+				},
+				dataType: "json",
+				success: function (response) {
+					console.log(response["data"]);
+					if (response["status"] == "failed") {
+						showInfo(response["message"]);
+					} else {
+						globalRefresh = true;
+						showInfo(response["message"]);
+					}
+				},
+				error: function (error) {
+					console.log(error);
+					showInfo("Error submitting data");
+				},
+			});
 		}
-		console.log(slug);
-
-		// Make an AJAX request
-		$.ajax({
-			type: "POST",
-			url: slug,
-			data: {
-				K_kriteria: KKriteria,
-				N_kriteria: NKriteria,
-				P_kriteria: PKriteria,
-			},
-			dataType: "json",
-			success: function (response) {
-				console.log(response["data"]);
-				if (response["status"] == "failed") {
-					showInfo(response["message"]);
-				} else {
-					globalRefresh = true;
-					showInfo(response["message"]);
-				}
-			},
-			error: function (error) {
-				console.log(error);
-				showInfo("Error submitting data");
-			},
-		});
 	});
 
 	$("#generalEdit").click(function () {
