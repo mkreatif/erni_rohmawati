@@ -54,6 +54,7 @@ $(document).ready(function () {
 		if (row.length > 0) {
 			var selected = row[0];
 			$("#kode").val(selected[0]);
+			$("#kode").prop("readonly", true);
 			$("#distributor").val(selected[1]);
 			$("#nama").val(selected[2]);
 			$("#no_tlp").val(selected[3]);
@@ -67,6 +68,7 @@ $(document).ready(function () {
 
 	$("#generalClear").click(function () {
 		$("#kode").val(generateSerialID);
+		$("#kode").prop("readonly", false);
 		$("#distributor").val("");
 		$("#nama").val("");
 		$("#no_tlp").val("");
