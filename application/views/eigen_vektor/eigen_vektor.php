@@ -20,7 +20,7 @@
             <form id="formEigenVektor">
 
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nama Kriteria</label>
+                    <label for="nama" class="col-sm-2 col-form-label col-form-label-sm">Nama Kriteria</label>
                     <div class="col-sm-5">
                         <select class="form-control form-control-sm" id="nama" required>
                             <option value="" disabled selected>Pilih Nama Kriteria</option>
@@ -32,7 +32,7 @@
                 </div>
                 <?php for ($i=1; $i <=5 ; $i++) { ?>
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">A<?=$i?></label>
+                    <label for="N<?=$i?>" class="col-sm-2 col-form-label col-form-label-sm">A<?=$i?></label>
                     <div class="col-sm-5">
                         <input type="number" min="0" max="1" class="form-control form-control-sm" id="N<?=$i?>" step="0.001" required />
                     </div>
@@ -40,13 +40,13 @@
                 <?php }?>
 
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm"> Prioritas</label>
+                    <label for="prioritas" class="col-sm-2 col-form-label col-form-label-sm"> Prioritas</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control form-control-sm" id="prioritas" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Eigen Vektor</label>
+                    <label for="N_akhir" class="col-sm-2 col-form-label col-form-label-sm">Eigen Vektor</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control form-control-sm" id="N_akhir" readonly>
                     </div>
