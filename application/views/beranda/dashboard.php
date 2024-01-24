@@ -5,6 +5,15 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+         <!-- Navbar items on the right -->
+         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="sign-out" href="#" style="padding:0px;">
+                    <img src="<?=base_url('assets/images/close.png')?>" alt="arrow_back"
+                        style="width:30px; height:auto;" />
+                </a>
+            </li>
+        </ul>
     </nav>
 
     <Section>
@@ -65,34 +74,4 @@
             </div>
         </div>
     </Section>
-</div>
-
-<script>
-    function toggleCardClass(index) {
-        var path = "dashboard";
-        switch (index) {
-            case 0:
-                path = "data-distributor";
-                break;
-            case 1:
-                path = "data-perhitungan";
-                break;
-            case 2:
-                path = "eigen-vektor";
-                break;
-            case 3:
-                path = "kriteria";
-                break;
-            case 4:
-                path = "rekomendasi-jalur";
-                break;
-            case 5:
-                path = "bobot-kriteria";
-                break;
-
-            default:
-                path += "?index="+index;
-        }
-        window.location.href = base_url + path;
-    }
-</script>
+</div> 

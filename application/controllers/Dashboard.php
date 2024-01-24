@@ -12,6 +12,9 @@ class Dashboard extends CI_Controller
 
     public function index(){
         $data['title'] = "Beranda";
+        $data["scripts"] = [
+            "assets/js/modules/beranda.js",
+        ]; 
         $data['content_view'] = 'beranda/dashboard';
         $this->load->view('templates/template', $data);
     } 
