@@ -35,6 +35,17 @@ class Kriteria extends CI_Controller
     public function bobot()
     {
         $data['title'] = "Bobot Kriteria";
+        $data["scripts"] = [
+            "assets/js/modules/bobot_kriteria.js?v=" . time(),
+        ];
+
+        $data["main_kriteria"] = array(
+            array("Jarak", "A1", 1, 0, 0, 0, 0),
+            array("Estimasi", "A2", 0, 1, 0, 0, 0),
+            array("Kapasitas", "A3", 0, 0, 1, 0, 0),
+            array("Biaya", "A4", 0, 0, 0, 1, 0),
+            array("Skill", "A5", 0, 0, 0, 0, 1),
+        );
         $data['content_view'] = 'kriteria/bobot-kriteria';
         $this->load->view('templates/template', $data);
     }
