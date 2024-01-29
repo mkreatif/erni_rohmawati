@@ -8,6 +8,7 @@ function getDefaultMetrix() {
         [0, 0, 0, 0, 1],
     ];
 }
+
 let metrix = getDefaultMetrix();
 </script>
 
@@ -41,7 +42,8 @@ let metrix = getDefaultMetrix();
                                 <th>A5</th>
                             </thead>
                             <tbody>
-                                <?php for ($i = 0; $i < 5; $i++) {$subs = $main_kriteria[$i]; $renderInput = false;?>
+                                <?php for ($i = 0; $i < 5; $i++) {$subs = $main_kriteria[$i];
+    $renderInput = false;?>
                                 <tr>
                                     <td><?=$subs[0]?></td>
                                     <td width="50"><?=$subs[1]?></td>
@@ -55,28 +57,44 @@ let metrix = getDefaultMetrix();
                                 </tr>
                                 <?php }?>
 
+                                <tr>
+                                    <td colspan="2">Jml Baris</td>
+                                    <?php for ($i = 0; $i < 5; $i++) {?>
+                                    <td><input class="form-control" type="text" id="add_<?=$i;?>" readonly /></td>
+                                    <?php }?>
+
+                                </tr>
+
                             </tbody>
                         </table>
                     </form>
                 </div>
-                <div class="col-md-4"> 
-                        <table class="table table-bordered">
-                            <thead>
-                                <th>Nilai Eigen</th>
-                                <th>Rata-rata Eigen</th>
-                            </thead>
-                            <tbody>
-                                <?php for ($i = 0; $i < 5; $i++) {?>
-                                    <tr>
-                                        <td><input class="form-control" type="text"  id="eigen_<?= $i;?>" readonly /></td>
-                                        <td><input class="form-control" type="text"  id="average_<?= $i;?>" readonly /></td>
-                                    </tr>
-                                <?php }?>
-                            </tbody>
-                        </table> 
+                <div class="col-md-4">
+                    <table class="table table-bordered">
+                        <thead>
+                            <th>Nilai Eigen</th>
+                            <th>Rata-rata Eigen</th>
+                        </thead>
+                        <tbody>
+                            <?php for ($i = 0; $i < 5; $i++) {?>
+                            <tr>
+                                <td><input class="form-control" type="text" id="eigen_<?=$i;?>" readonly /></td>
+                                <td><input class="form-control" type="text" id="average_<?=$i;?>" readonly /></td>
+                            </tr>
+                            <?php }?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
         </div>
     </Section>
+    <section>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="btn btn-primary btn-sm" id="btnHitung">Hitung</div>
+                <div class="btn btn-secondary btn-sm" id="btnReset">Reset</div>
+            </div>
+        </div>
+    </section>
 </div>
