@@ -91,9 +91,36 @@ let metrix = getDefaultMetrix();
     </Section>
     <section>
         <div class="row">
-            <div class="col-md-12">
-                <div class="btn btn-primary btn-sm" id="btnHitung">Hitung</div>
-                <div class="btn btn-secondary btn-sm" id="btnReset">Reset</div>
+            <div class="col-md-8">
+                <div class="card  p-2">
+                    <h4>Nilai Consistency Ratio (CR)</h4>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>CI (Consistency Index)</td>
+                                <td><input class="form-control" type="text" id="nilai_ci" readonly /></td>
+                            </tr>
+                            <tr>
+                                <td>RI (Random Index) untuk n=5 (jumlah kriteria)</td>
+                                <td><input class="form-control" type="text" id="nilai_ri" readonly /></td>
+                            </tr>
+                            <tr>
+                                <td>CR (Consistency Ratio)</td>
+                                <td><input class="form-control" type="text" id="nilai_cr" readonly /></td>
+                            </tr>
+                            <tr>
+                                <td>Keputusan Rasio</td>
+                                <td><input class="form-control" type="text" id="keputusan" readonly /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card p-2">
+                    <div class="btn btn-primary btn-sm" id="btnHitung">Hitung</div><br />
+                    <div class="btn btn-secondary btn-sm" id="btnReset">Reset</div>
+                </div>
             </div>
         </div>
     </section>
